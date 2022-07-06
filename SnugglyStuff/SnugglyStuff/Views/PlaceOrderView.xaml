@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SnugglyStuff.Views.PlaceOrderView">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="Place Order"
+                   FontSize="Title"
+                   HorizontalOptions="CenterAndExpand"
+                   Padding="10"></Label>
+            <Image x:Name="ImageSrc"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"/>
+            <Label x:Name="Description"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="Price"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center" />
+            <StackLayout Orientation="Horizontal"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center" >
+                <Label Text="Delivery Charges :"/>
+                <Label Text="$5"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center" >
+                <Label Text="Total : "/>
+                <Label x:Name="lblTotal"/>
+            </StackLayout>
+            <Label x:Name="Email"
+                   HorizontalOptions="CenterAndExpand"></Label>
+            <Label x:Name="Address"
+                   HorizontalOptions="CenterAndExpand"></Label>
+            <Label x:Name="PhoneNo"
+                   HorizontalOptions="CenterAndExpand"></Label>
+            <Button Text="Place Order"
+                    Clicked="PlaceOrder"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

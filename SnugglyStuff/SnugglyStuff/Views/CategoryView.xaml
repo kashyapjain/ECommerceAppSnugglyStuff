@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SnugglyStuff.Views.CategoryView"
+             Title="Home Page">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Frame>
+                <StackLayout>
+                    <BoxView HeightRequest="1" 
+                             Color="Gray" 
+                             IsVisible="true"/>
+                    <Label Text="Welcome To Snuggly Stuff"
+                           FontSize="Title"
+                           HorizontalOptions="CenterAndExpand"
+                           Padding="5"></Label>
+                    <BoxView HeightRequest="1" 
+                             Color="Gray" 
+                             IsVisible="true"/>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Padding="10">
+                <SearchBar Placeholder="Search items..."/>
+            </StackLayout>
+
+            <StackLayout BackgroundColor="LightGray">
+                <CarouselView x:Name="MainCarouselView"
+                              ItemsSource="{Binding sliders}"
+                              HeightRequest="225"
+                              Margin="0,30,0,0"
+                              IndicatorView="{x:Reference SliderIndicator}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image}"
+                                   x:Name="SliderImage"
+                                   VerticalOptions="End">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                         Tapped="SliderImageTapped"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="SliderIndicator"
+                               Padding="5"
+                               Margin="0,0,0,10"
+                               IndicatorSize="9"
+                               IndicatorColor="Black" 
+                               SelectedIndicatorColor="White" 
+                               IndicatorsShape="Circle" 
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            <StackLayout>
+                <StackLayout>
+                    <Label Text="Browse Categories"
+                           FontSize="Title"
+                           HorizontalOptions="CenterAndExpand"
+                           Padding="10"></Label>
+                </StackLayout>
+                
+                <StackLayout>
+                    <Grid x:Name="CategoryGridLayout"></Grid>
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="Contact Us"
+                            Clicked="Logout"
+                            WidthRequest="400"
+                            HorizontalOptions="Center"></Button>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

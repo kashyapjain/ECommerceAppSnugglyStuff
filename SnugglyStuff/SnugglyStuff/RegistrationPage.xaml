@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SnugglyStuff.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Register"
+                   FontSize="Title"
+                   HorizontalOptions="CenterAndExpand"
+                   Padding="10"></Label>
+            <Entry Placeholder="Email"
+                   x:Name="Email"
+                   HorizontalOptions="CenterAndExpand"
+                   WidthRequest="400"></Entry>
+            <Entry Placeholder="Password"
+                   x:Name="Password"
+                   IsPassword="True"
+                   WidthRequest="400"
+                   HorizontalOptions="CenterAndExpand"></Entry>
+            <Entry Placeholder="Address"
+                   x:Name="Address"
+                   WidthRequest="400"
+                   HorizontalOptions="CenterAndExpand"></Entry>
+            <Entry Placeholder="PhoneNo"
+                   x:Name="PhoneNo"
+                   WidthRequest="400"
+                   HorizontalOptions="CenterAndExpand"></Entry>
+            
+            <StackLayout Padding="10">
+                <Button Text="Register"
+                        Clicked="Register"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

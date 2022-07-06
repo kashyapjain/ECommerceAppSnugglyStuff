@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SnugglyStuff.LoginPage"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Login"
+                   FontSize="Title"
+                   HorizontalOptions="CenterAndExpand"
+                   Padding="10"></Label>
+            <Entry Placeholder="Email"
+                   x:Name="Email"
+                   WidthRequest="400"
+                   HorizontalOptions="CenterAndExpand"></Entry>
+            <Entry Placeholder="Password"
+                   x:Name="Password"
+                   WidthRequest="400"
+                   IsPassword="True"
+                   HorizontalOptions="CenterAndExpand"></Entry>
+            <StackLayout Padding="10">
+                <Button Text="Login"
+                        Clicked="Login"></Button>
+                <Button Text="Register"
+                        Clicked="Register"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SnugglyStuff.Views.ItemCoustomizationView">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="10">
+                <StackLayout Orientation="Vertical">
+                    <AbsoluteLayout>
+                        <RelativeLayout>
+                            <Image x:Name="FirstImage"
+                                   Aspect="Fill">
+                            </Image>
+
+                            <Image x:Name="SecondImage">
+                            </Image>
+                        </RelativeLayout>
+                    </AbsoluteLayout>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="End">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="CenterAndExpand">
+                        <Button Text="Up"
+                                Clicked="Up"></Button>
+                        <Button Text="Down"
+                                Clicked="Down"></Button>
+                        <Button Text="Left"
+                                Clicked="Left"></Button>
+                        <Button Text="Right"
+                                Clicked="Right"></Button>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="CenterAndExpand">
+                        <Button Text="Increase"
+                                Clicked="Increase"
+                                WidthRequest="185"></Button>
+
+                        <Button Text="Decrease"
+                                Clicked="Decrease"
+                                WidthRequest="185"></Button>
+                    </StackLayout>
+
+                    <Button Clicked="PlaceOrder"
+                            Text="Place Order"></Button>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

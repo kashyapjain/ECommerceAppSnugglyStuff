@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9f10a52ab3754b9a9ddf62034aa6c916" Name="Diagram1">
+        <EntityTypeShape EntityType="SnugglyStuffModel.tblUser" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="SnugglyStuffModel.Slider" Width="1.5" PointX="0.625" PointY="4" />
+        <EntityTypeShape EntityType="SnugglyStuffModel.Category" Width="1.5" PointX="1" PointY="1.25" />
+        <AssociationConnector Association="SnugglyStuffModel.FK__Sliders__Categor__5070F446" />
+        <EntityTypeShape EntityType="SnugglyStuffModel.Item" Width="1.5" PointX="2.875" PointY="3.875" />
+        <AssociationConnector Association="SnugglyStuffModel.FK__Items__CategoryI__5165187F" />
+        <EntityTypeShape EntityType="SnugglyStuffModel.Order" Width="1.5" PointX="5.125" PointY="2.875" />
+        <AssociationConnector Association="SnugglyStuffModel.FK__Orders__ItemNo__571DF1D5" />
+        <AssociationConnector Association="SnugglyStuffModel.FK__Orders__ItemNo__5812160E" />
+        <AssociationConnector Association="SnugglyStuffModel.FK__Orders__UserID__59063A47" />
+        <AssociationConnector Association="SnugglyStuffModel.FK__Orders__UserID__59FA5E80" />
+        <EntityTypeShape EntityType="SnugglyStuffModel.FireBaseToken" Width="1.5" PointX="6.625" PointY="0.75" />
+        <AssociationConnector Association="SnugglyStuffModel.FK__FireBaseT__UserI__5CD6CB2B" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:tt="clr-namespace:TouchTracking.Forms;assembly=TouchTracking.Forms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SnugglyStuff.Views.ItemView">
+    <ContentPage.Content>
+        
+        <Grid Padding="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.RowSpan="6">
+                <skia:SKCanvasView x:Name="canvasView"
+                               PaintSurface="OnCanvasViewPaintSurface"/>
+                <Grid.Effects>
+                    <tt:TouchEffect Capture="True"
+                                TouchAction="OnTouchEffectAction" />
+                </Grid.Effects>
+            </Grid>
+            <ScrollView Grid.Row="5" VerticalOptions="End">
+                <StackLayout>
+                    <Button Text="Add Logo"
+                            Clicked="AddLogo"></Button>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Placeholder="Add Text"
+                                x:Name="AddText"
+                                WidthRequest="150"
+                                HorizontalOptions="CenterAndExpand"></Entry>
+                        <Button Text="Add Text"
+                                Clicked="AddTextMethod"
+                                HorizontalOptions="CenterAndExpand"
+                                WidthRequest="150"></Button>
+                        </StackLayout>
+                    <Button Text="Place Order"
+                            Clicked="PlaceOrder">
+                    </Button>
+                    </StackLayout>
+            </ScrollView>
+            </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

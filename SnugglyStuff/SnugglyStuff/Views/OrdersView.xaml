@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:model="clr-namespace:SnugglyStuff.Models"
+             x:Class="SnugglyStuff.Views.OrdersView"
+             Title="Orders">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Orders}"                 
+                  x:Name="OrdersListView"   
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Order">
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding OrderedImage}" WidthRequest="125"/>
+                                
+                                <StackLayout VerticalOptions="CenterAndExpand"
+                                             HorizontalOptions="CenterAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label
+                                    Text="Date:- "
+                                    FontSize="Medium"
+                                    VerticalOptions="Center" />
+                                        <Label 
+                                    Text="Status:- "
+                                        FontSize="Medium"
+                                    VerticalOptions="Center" />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Vertical">
+                                        
+                                        <Label
+                                    Text="{Binding DateAndTime}"
+                                    FontSize="Medium"
+                                    VerticalOptions="Center" />
+                                        <Label 
+                                    Text="{Binding Status}"
+                                        FontSize="Medium"
+                                    VerticalOptions="Center" />
+                                    </StackLayout>
+                                    </StackLayout>
+                                    <Button Text="Reorder"
+                                            CommandParameter="{Binding ID}"
+                                            Clicked="Reorder"></Button>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
