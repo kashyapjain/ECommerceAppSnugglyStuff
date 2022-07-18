@@ -74,9 +74,16 @@ namespace SnugglyStuffWebApp.Controllers
         }
         public IEnumerable<Slider> GetSliders()
         {
-            var data = new SnugglyStuffEntities().Sliders.ToList();
+            try
+            {
+                var data = new SnugglyStuffEntities().Sliders.ToList();
 
-            return data;
+                return data;
+            }
+            catch(Exception ex)
+            {
+                return new List<Slider> { new Slider { Image = ex.ToString() } };
+            }
         }
 
         [HttpPost]
