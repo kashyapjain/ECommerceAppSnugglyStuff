@@ -11,7 +11,7 @@ namespace SnugglyStuff.Models
         {
             get
             {
-                return "http://192.168.1.8/";
+                return "http://apiss.somee.com/";
             }
         }
 
@@ -20,7 +20,7 @@ namespace SnugglyStuff.Models
         {
             get
             {
-                return MainUrl + "SnugglyStuffWebApp/api/data/";
+                return MainUrl + "apiss/api/data/";
             }
         }
         public static string ReorderUrl
@@ -84,7 +84,7 @@ namespace SnugglyStuff.Models
         {
             get
             {
-                return MainUrl + "SnugglyStuffMVC/";
+                return MainUrl + "sscms/";
             }
         }
         public static string ImageUrl
