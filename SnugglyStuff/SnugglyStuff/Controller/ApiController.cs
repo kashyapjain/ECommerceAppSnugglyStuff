@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
+using Plugin.FirebasePushNotification;
 using SnugglyStuff.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -151,7 +153,17 @@ namespace SnugglyStuff.Controller
         {
             try
             {
-                user.Token = Application.Current.Properties["Token"].ToString();
+                user.Token = CrossFirebasePushNotification.Current.Token;
+                if(user.Token.Equals(""))
+                {
+                    Thread thread = new Thread(async () =>
+                    {
+                        user.Token = await CrossFirebasePushNotification.Current.GetTokenAsync();
+
+                        LoginOrRegistration(user,url);
+                    });
+                    thread.Start();
+                }
 
                 var json = JsonConvert.SerializeObject(user);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
