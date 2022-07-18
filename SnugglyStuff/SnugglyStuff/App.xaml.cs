@@ -15,16 +15,9 @@ namespace SnugglyStuff
             InitializeComponent();
 
             MainPage = new MainPage();
-
-            CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
         }
 
-        private void Current_OnTokenRefresh(object source, FirebasePushNotificationTokenEventArgs e)
-        {
-            Application.Current.Properties["Token"] = e.Token;   
-        }
-
-        protected override void OnStart()
+        protected async override void OnStart()
         {
         }
 

@@ -24,15 +24,18 @@ namespace SnugglyStuff.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            InitFirebase();
+
             LoadApplication(new App());
 
-            FirebasePushNotificationManager.ProcessIntent(this, Intent);
+            FirebasePushNotificationManager.ProcessIntent(this, Intent); 
+            }
 
-            MainApplication();
-        }
-
-        public void MainApplication()
+        public async void InitFirebase()
         {
+            CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
+
             //Set the default notification channel for your app when running Android Oreo
             if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.O)
             {
@@ -44,22 +47,8 @@ namespace SnugglyStuff.Droid
 
                 FirebasePushNotificationManager.DefaultNotificationChannelImportance = NotificationImportance.Max;
             }
-            var isKey = Xamarin.Forms.Application.Current.Properties.ContainsKey("Token");
-            try
-            {
-                if (!isKey)
-                {
-                    FirebasePushNotificationManager.Initialize(this, true);
-                }
-                else
-                {
-                    FirebasePushNotificationManager.Initialize(this, false);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
+            
+            FirebasePushNotificationManager.Initialize(this, false);
 
             //Handle notification when app is closed here
             CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
@@ -67,6 +56,11 @@ namespace SnugglyStuff.Droid
 
 
             };
+        }
+
+        private void Current_OnTokenRefresh(object source, FirebasePushNotificationTokenEventArgs e)
+        {
+         
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
