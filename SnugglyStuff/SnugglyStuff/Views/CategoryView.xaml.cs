@@ -126,14 +126,16 @@ namespace SnugglyStuff.Views
 
             var sliders = ApiController.GetSliders();
 
-            MainCarouselView.ItemsSource = sliders;
-
-            Device.StartTimer(TimeSpan.FromSeconds(5), (Func<bool>)(() =>
+            if(sliders!=null)
             {
-                MainCarouselView.Position = (MainCarouselView.Position + 1) % sliders.Count;
-                return true;
-            }));
+                MainCarouselView.ItemsSource = sliders;
 
+                Device.StartTimer(TimeSpan.FromSeconds(5), (Func<bool>)(() =>
+                {
+                    MainCarouselView.Position = (MainCarouselView.Position + 1) % sliders.Count;
+                    return true;
+                }));
+            }
         }
 
         public async void SliderImageTapped(object sender, EventArgs e)
